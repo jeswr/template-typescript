@@ -16,3 +16,5 @@ fs.writeFileSync('package.json', JSON.stringify(pk, null, 2) + '\n');
 for (const file of ['LICENSE', 'README.md']) {
   fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace(/2021/g, new Date().getFullYear().toString()));
 }
+
+await $`npx npm-check-updates -u -t minor`;
