@@ -9,8 +9,16 @@ const pk = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 pk.name = '@' + repo.split('/').slice(-2).join('/');
 pk.repository.url = repo;
 pk.bugs.url = repo + '/issues';
+pk.homepage = repo + '/README.md';
 
-fs.writeFileSync('package.json', JSON.stringify(pk, null, 2));
+fs.writeFileSync('package.json', JSON.stringify(pk, null, 2) + '\n');
+
+for (const file of ['LICENSE', 'README.md']) {
+  const currentDate = new Date().getFullYear().toString();
+  const licenseContent = fs.readFileSync(file, 'utf8');
+  const updatedLicenseContent = licenseContent.replace(/2021/g, currentDate);
+  fs.writeFileSync(file, updatedLicenseContent);
+}
 
 // console.log(pk.name, pk.version);
 // console.log(repo, issues, pkg);

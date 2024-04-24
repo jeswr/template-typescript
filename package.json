@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "@jeswr/template-typescript",
   "version": "0.0.0-development",
   "description": "",
   "main": "dist/index.js",
@@ -22,15 +22,15 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jeswr/template-typescript"
   },
   "keywords": [],
   "author": "Jesse Wright <https://github.com/jeswr/>",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/jeswr/template-typescript/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/jeswr/template-typescript/README.md",
   "devDependencies": {
     "@types/jest": "^29.2.6",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
@@ -48,7 +48,7 @@
     "preset": "ts-jest",
     "collectCoverage": true,
     "coverageReporters": [
-      "json-summary", 
+      "json-summary",
       "text",
       "lcov"
     ],
