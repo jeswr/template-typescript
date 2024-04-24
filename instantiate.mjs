@@ -14,23 +14,5 @@ pk.homepage = repo + '/README.md';
 fs.writeFileSync('package.json', JSON.stringify(pk, null, 2) + '\n');
 
 for (const file of ['LICENSE', 'README.md']) {
-  const currentDate = new Date().getFullYear().toString();
-  const licenseContent = fs.readFileSync(file, 'utf8');
-  const updatedLicenseContent = licenseContent.replace(/2021/g, currentDate);
-  fs.writeFileSync(file, updatedLicenseContent);
+  fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace(/2021/g, new Date().getFullYear().toString()));
 }
-
-// console.log(pk.name, pk.version);
-// console.log(repo, issues, pkg);
-
-
-// await $`dep deploy --branch=${branch}`
-
-// await Promise.all([
-//   $`sleep 1; echo 1`,
-//   $`sleep 2; echo 2`,
-//   $`sleep 3; echo 3`,
-// ])
-
-// let name = 'foo bar'
-// await $`mkdir /tmp/${name}`
