@@ -18,3 +18,5 @@ for (const file of ['LICENSE', 'README.md']) {
 }
 
 await $`npx npm-check-updates -u -t minor`;
+await $`npm i`;
+await $`npm run lint:fix`;

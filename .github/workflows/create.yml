@@ -1,0 +1,27 @@
+name: Enable automerge on dependabot PRs
+
+on:
+  push:
+
+jobs:
+  create:
+    name: Enable automerge on dependabot PRs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    if: github.event_name == 'pull_request' && startsWith(github.event.pull_request.head.repo.full_name, 'jeswr/template-typescript')
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx zx instantiate.mjs
+      - run: 
+          name: Commit changes
+          run: |
+        git config --global user.name 'Jesse Wright'
+        git config --global user.email '63333554+jeswr@users.noreply.github.com'
+        git add .
+        git commit -m "Automatically instantiate"
+        gh pr create --title "Automatically instantiate" --body "This PR was automatically created to instantiate the project."
+    env:
+      GH_TOKEN: ${{ github.token }}
