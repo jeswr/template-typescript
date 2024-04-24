@@ -20,3 +20,5 @@ for (const file of ['LICENSE', 'README.md']) {
 await $`npx npm-check-updates -u -t minor`;
 await $`npm i`;
 await $`npm run lint:fix`;
+await $`rm .github/workflows/create.yml`;
+await $`rm ./instantiate.mjs`;
